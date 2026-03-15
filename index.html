@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>J. Anthony Cookson — Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1a3366;
+      --navy-light:  #254e8a;
+      --gold:        #8b6914;
+      --gold-light:  #b08a28;
+      --cream:       #faf9f6;
+      --white:       #ffffff;
+      --text:        #1e1e1e;
+      --muted:       #636363;
+      --border:      #dedad3;
+      --card-bg:     #ffffff;
+      --section-alt: #f4f2ee;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15.5px;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.7;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 52px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .nav-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem; font-weight: 500;
+      color: rgba(255,255,255,0.92); letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a {
+      color: rgba(255,255,255,0.72); text-decoration: none;
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      transition: color 0.18s;
+    }
+    nav ul a:hover { color: #d4a843; }
+    @media (max-width: 600px) { nav ul { display: none; } }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: #0f1e38;
+      border-bottom: 1px solid #1e3560;
+      padding: 4rem 2.5rem 3.5rem;
+    }
+    .hero .hero-info h1 { color: #ffffff; }
+    .hero .hero-title   { color: rgba(255,255,255,0.58); }
+    .hero .hero-affil   { color: rgba(255,255,255,0.82); }
+    .hero .hero-bio     { color: rgba(255,255,255,0.70); }
+    .hero .transition-note {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.85);
+    }
+    .hero .hero-photo {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+    }
+    .hero .hero-link-primary {
+      background: var(--gold-light); color: #ffffff;
+    }
+    .hero .hero-link-primary:hover { background: var(--gold); }
+    .hero .hero-link-secondary {
+      border-color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.82);
+      background: transparent;
+    }
+    .hero .hero-link-secondary:hover {
+      background: rgba(255,255,255,0.12);
+      color: #ffffff;
+    }
+    .hero-inner {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 3rem; align-items: start;
+    }
+    @media (max-width: 680px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { margin: 0 auto; }
+    }
+    .hero-photo {
+      width: 180px; height: 220px;
+      border-radius: 3px;
+      object-fit: cover; object-position: top center;
+      box-shadow: 0 4px 20px rgba(26,51,102,0.15);
+    }
+    .hero-info h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.4rem; font-weight: 600;
+      color: var(--navy); line-height: 1.15;
+      letter-spacing: -0.01em; margin-bottom: 0.35rem;
+    }
+    .hero-title {
+      font-size: 0.92rem; color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+    .hero-affil {
+      font-size: 0.92rem; font-weight: 500;
+      color: var(--navy); margin-bottom: 1.5rem;
+    }
+    .transition-note {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #f0f4ff;
+      border: 1px solid #c5d0f0;
+      border-radius: 3px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.8rem; color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .transition-note .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold-light); flex-shrink: 0;
+    }
+    .hero-bio {
+      font-size: 0.93rem; color: #3a3a3a;
+      line-height: 1.75; margin-bottom: 1.5rem;
+      max-width: 620px;
+    }
+    .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-link {
+      display: inline-block;
+      padding: 0.45rem 1.1rem;
+      border-radius: 3px;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.04em; text-decoration: none;
+      transition: all 0.18s;
+    }
+    .hero-link-primary {
+      background: var(--navy); color: var(--white);
+    }
+    .hero-link-primary:hover { background: var(--navy-light); }
+    .hero-link-secondary {
+      background: transparent; color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .hero-link-secondary:hover { background: var(--navy); color: var(--white); }
+
+    /* ─── SECTION SHELL ─── */
+    section { padding: 4.5rem 2.5rem; }
+    section.alt { background: var(--section-alt); }
+    .container { max-width: 960px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.4rem;
+    }
+    h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.9rem; font-weight: 600;
+      color: var(--navy); line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+    .rule {
+      width: 40px; height: 3px;
+      background: var(--gold); border-radius: 2px;
+      margin: 0.75rem 0 2rem;
+    }
+
+    /* ─── RESEARCH TABS ─── */
+    .tab-bar {
+      display: flex; gap: 0; margin-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .tab {
+      padding: 0.6rem 1.5rem;
+      font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--muted); cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px; transition: all 0.18s;
+      text-decoration: none;
+    }
+    .tab.active, .tab:hover {
+      color: var(--navy);
+      border-bottom-color: var(--navy);
+    }
+
+    /* ─── PAPER LIST ─── */
+    .paper-list { display: flex; flex-direction: column; gap: 0; }
+    .paper {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .paper:first-child { border-top: 1px solid var(--border); }
+    .paper-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.08rem; font-weight: 600;
+      color: var(--navy); text-decoration: none;
+      line-height: 1.35; display: block;
+      margin-bottom: 0.3rem;
+      transition: color 0.15s;
+    }
+    .paper-title:hover { color: var(--gold); }
+    .paper-authors {
+      font-size: 0.83rem; color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .paper-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.18rem 0.55rem; border-radius: 2px;
+    }
+    .badge-review   { background: #fff8e6; color: #7a5800; border: 1px solid #e8d080; }
+    .badge-accepted { background: #e8f5e9; color: #2e6e34; border: 1px solid #a8d8ac; }
+    .badge-journal  { background: #eef2f8; color: var(--navy); border: 1px solid #c0ccdf; }
+    .badge-submitted { background: #f5f0ff; color: #4a2080; border: 1px solid #c8b0e8; }
+    .paper-venue {
+      font-size: 0.82rem; color: var(--muted);
+      font-style: italic;
+    }
+    .ssrn-link {
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--gold); text-decoration: none;
+      letter-spacing: 0.04em;
+      border: 1px solid var(--gold);
+      border-radius: 2px;
+      padding: 0.12rem 0.45rem;
+      transition: all 0.15s;
+    }
+    .ssrn-link:hover { background: var(--gold); color: var(--white); }
+
+    /* ─── EDITORIAL ─── */
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    @media (max-width: 600px) { .editorial-grid { grid-template-columns: 1fr; } }
+    .ed-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 3px;
+      padding: 0.85rem 1.1rem;
+    }
+    .ed-card .role {
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.2rem;
+    }
+    .ed-card .journal {
+      font-size: 0.92rem; font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      padding: 2.5rem 2.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    footer a { color: #d4a843; text-decoration: none; }
+    footer .footer-top {
+      display: flex; justify-content: center;
+      gap: 2rem; flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+    footer .footer-top a {
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#">J. Anthony Cookson</a>
+  <ul>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#editorial">Editorial</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#data-and-programs">Data &amp; Programs</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <img class="hero-photo"
+      src="cookson_headshot.avif"
+      alt="J. Anthony Cookson" />
+    <div class="hero-info">
+      <h1>J. Anthony Cookson</h1>
+      <p class="hero-title">Michael A. Klump Endowed Professor of Finance</p>
+      <p class="hero-affil">Leeds School of Business, University of Colorado Boulder</p>
+      <div class="transition-note" style="background:rgba(184,137,42,0.18);border-color:rgba(212,169,67,0.45);">
+        <img src="buffs_logo.png" alt="CU Boulder" style="height:18px;width:auto;opacity:0.85;" />
+        Professor at University of Colorado Boulder's Leeds School of Business Since 2013
+      </div>
+      <div class="transition-note">
+        <img src="psu_logo.png" alt="Penn State" style="height:18px;width:auto;opacity:0.85;" />
+        Joining Penn State Smeal College of Business as Smeal Chair Professor · June 2026
+      </div>
+      <p class="hero-bio">
+        I study how households, investors, and firms use financial products and make
+        financial decisions. My recent work examines the role of emerging technologies —
+        particularly social media and large language models — in shaping behavior,
+        belief formation, and ideological expression in financial markets.
+      </p>
+      <div class="hero-links">
+        <a class="hero-link hero-link-primary"
+           href="https://www.colorado.edu/business/media/1273"
+           target="_blank" rel="noopener">Curriculum Vitae</a>
+        <a class="hero-link hero-link-secondary"
+           href="#data-and-programs">Data &amp; Programs</a>
+        <a class="hero-link hero-link-secondary" href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="section-label">Research</div>
+    <h2>Working Papers &amp; Publications</h2>
+    <div class="rule"></div>
+
+    <!-- Working Papers -->
+    <div style="margin-bottom:3rem;">
+      <h3 style="font-family:'EB Garamond',serif;font-size:1.25rem;font-weight:600;
+        color:var(--navy);margin-bottom:1.25rem;">Working Papers</h3>
+      <div class="paper-list">
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5057551"
+             target="_blank" rel="noopener">
+            Coverage Neglect in Homeowners Insurance
+          </a>
+          <p class="paper-authors">with Emily Gallagher and Phil Mulder</p>
+          <div class="paper-meta">
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5057551"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5187062"
+             target="_blank" rel="noopener">
+            Immigration and Credit in America
+          </a>
+          <p class="paper-authors">with Ben Guttman-Kenney and Will Mullins</p>
+          <div class="paper-meta">
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5187062"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5187350"
+             target="_blank" rel="noopener">
+            Market Signals from Social Media
+          </a>
+          <p class="paper-authors">with Runjing Lu, Will Mullins, and Marina Niessner</p>
+          <div class="paper-meta">
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5187350"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5375473"
+             target="_blank" rel="noopener">
+            The Market's Mirror: Revealing Disagreement with Large Language Models
+          </a>
+          <p class="paper-authors">with Vineet Bhagwat, Chukwuma Dim, and Marina Niessner</p>
+          <div class="paper-meta">
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5375473"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4884628"
+             target="_blank" rel="noopener">
+            Disagreement on the Horizon
+          </a>
+          <p class="paper-authors">with Chukwuma Dim and Marina Niessner</p>
+          <div class="paper-meta">
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4884628"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4692967"
+             target="_blank" rel="noopener">
+            News Consumption in the Wild
+          </a>
+          <p class="paper-authors">with Diego García and Elvis Jarnecic</p>
+          <div class="paper-meta">
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4692967"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3631760"
+             target="_blank" rel="noopener">
+            Do I Really Want to Hear the News? Public Information Arrival and Ambiguity
+          </a>
+          <p class="paper-authors">with Azi Ben Rephael and Yud Izhakian</p>
+          <div class="paper-meta">
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3631760"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4180712"
+             target="_blank" rel="noopener">
+            Trading, Ambiguity, and Information in the Options Market
+          </a>
+          <p class="paper-authors">with Azi Ben Rephael and Yud Izhakian</p>
+          <div class="paper-meta">
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4180712"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4529594"
+             target="_blank" rel="noopener">
+            Investor Disagreement: Daily Measures from Social Media
+          </a>
+          <p class="paper-authors">with Marina Niessner</p>
+          <div class="paper-meta">
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4529594"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Publications -->
+    <div>
+      <h3 style="font-family:'EB Garamond',serif;font-size:1.25rem;font-weight:600;
+        color:var(--navy);margin-bottom:1.25rem;">Publications</h3>
+      <div class="paper-list">
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4535190"
+             target="_blank" rel="noopener">
+            Money to Burn: Crowdfunding for Disaster Recovery
+          </a>
+          <p class="paper-authors">with Emily Gallagher and Phil Mulder</p>
+          <div class="paper-meta">
+            <span class="badge badge-accepted">Conditionally Accepted</span>
+            <span class="paper-venue">Journal of Finance</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4535190"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4422754"
+             target="_blank" rel="noopener">
+            Social Media as a Bank Run Catalyst
+          </a>
+          <p class="paper-authors">with Corbin Fox, Javier Gil-Bazo, Juan Imbet, and Christoph Schiller</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Financial Economics</span>
+            <span class="paper-venue">Vol. 176 (February 2026), 104218</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4422754"
+               target="_blank" rel="noopener">SSRN</a>
+            <a class="ssrn-link"
+               href="https://www.sciencedirect.com/science/article/pii/S0304405X25002260"
+               target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4059633"
+             target="_blank" rel="noopener">
+            Can Social Media Inform Corporate Decisions? Evidence from Merger Withdrawals
+          </a>
+          <p class="paper-authors">with Marina Niessner and Christoph Schiller</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Finance</span>
+            <span class="paper-venue">Vol. 81, No. 1 (February 2026), pp. 91–142</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4059633"
+               target="_blank" rel="noopener">SSRN</a>
+            <a class="ssrn-link"
+               href="https://onlinelibrary.wiley.com/doi/10.1111/jofi.13508"
+               target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3765092"
+             target="_blank" rel="noopener">
+            Does Disagreement Facilitate Informed Trading?
+          </a>
+          <p class="paper-authors">with Slava Fos and Marina Niessner</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Financial and Quantitative Analysis</span>
+            <span class="paper-venue">Vol. 61, No. 2 (March 2026), pp. 612–639</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3765092"
+               target="_blank" rel="noopener">SSRN</a>
+            <a class="ssrn-link"
+               href="https://www.cambridge.org/core/journals/journal-of-financial-and-quantitative-analysis/article/abs/does-disagreement-facilitate-informed-trading/F43F2A7D04A871CEE9D3C8D3CA7C390F"
+               target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3152460"
+             target="_blank" rel="noopener">
+            Speculative and Informative: Lessons from Market Reactions to Speculation Cues
+          </a>
+          <p class="paper-authors">with S. Katie Moon and Joonki Noh</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Review of Corporate Finance Studies</span>
+            <span class="paper-venue">September 2025</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3152460"
+               target="_blank" rel="noopener">SSRN</a>
+            <a class="ssrn-link"
+               href="https://doi.org/10.1093/rcfs/cfaf021"
+               target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241505"
+             target="_blank" rel="noopener">
+            The Social Signal
+          </a>
+          <p class="paper-authors">with Runjing Lu, William Mullins, and Marina Niessner</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Financial Economics</span>
+            <span class="paper-venue">Vol. 158 (August 2024), 103870 · Editor's Choice</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241505"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3603107"
+             target="_blank" rel="noopener">
+            Echo Chambers
+          </a>
+          <p class="paper-authors">with Joseph E. Engelberg and William Mullins</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Review of Financial Studies</span>
+            <span class="paper-venue">Vol. 36, No. 2 (February 2023), pp. 450–500</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3603107"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3682223"
+             target="_blank" rel="noopener">
+            Shale Shocked: Cash Windfalls and Debt Repayment
+          </a>
+          <p class="paper-authors">with Erik P. Gilje and Rawley Z. Heimer</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Financial Economics</span>
+            <span class="paper-venue">Vol. 146, No. 3 (December 2022), pp. 905–931</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3682223"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3551576"
+             target="_blank" rel="noopener">
+            Personal Wealth, Self-Employment, and Business Ownership
+          </a>
+          <p class="paper-authors">with Aymeric Bellon, Erik P. Gilje, and Rawley Z. Heimer</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Review of Financial Studies</span>
+            <span class="paper-venue">Vol. 34, No. 8 (August 2021), pp. 3935–3975</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3551576"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2803232"
+             target="_blank" rel="noopener">
+            A Text-Based Analysis of Corporate Innovation
+          </a>
+          <p class="paper-authors">with Gustaf Bellstam and Sanjai Bhagat</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Management Science</span>
+            <span class="paper-venue">Vol. 67, No. 7 (July 2021), pp. 4004–4031 · Featured Article</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2803232"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2419277"
+             target="_blank" rel="noopener">
+            Assortative Matching and Reputation in the Market for First Issues
+          </a>
+          <p class="paper-authors">with Oktay Akkus and Ali Hortaçsu</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Management Science</span>
+            <span class="paper-venue">Vol. 67, No. 4 (April 2021), pp. 2049–2074</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2419277"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3621067"
+             target="_blank" rel="noopener">
+            Does Partisanship Shape Investor Beliefs? Evidence from the COVID-19 Pandemic
+          </a>
+          <p class="paper-authors">with Joseph E. Engelberg and William Mullins</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Review of Asset Pricing Studies</span>
+            <span class="paper-venue">Vol. 10, No. 4 (December 2020), pp. 863–893</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3621067"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2754086"
+             target="_blank" rel="noopener">
+            Why Don't We Agree? Evidence from a Social Network of Investors
+          </a>
+          <p class="paper-authors">with Marina Niessner</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Finance</span>
+            <span class="paper-venue">Vol. 75, No. 1 (February 2020), pp. 173–228</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2754086"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2809164"
+             target="_blank" rel="noopener">
+            Growing Up Without Finance
+          </a>
+          <p class="paper-authors">with James R. Brown and Rawley Z. Heimer</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Financial Economics</span>
+            <span class="paper-venue">Vol. 134, No. 3 (December 2019), pp. 591–616</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2809164"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3152459"
+             target="_blank" rel="noopener">
+            Does Contract Enforcement Mitigate Hold Up?
+          </a>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Review of Corporate Finance Studies</span>
+            <span class="paper-venue">Vol. 7, No. 2 (September 2018), pp. 245–275</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3152459"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2517126"
+             target="_blank" rel="noopener">
+            When Saving is Gambling
+          </a>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Financial Economics</span>
+            <span class="paper-venue">Vol. 123, No. 1 (July 2018), pp. 24–45</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2517126"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2368674"
+             target="_blank" rel="noopener">
+            Anticipated Entry and Entry Deterrence: Evidence from the American Casino Industry
+          </a>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Management Science</span>
+            <span class="paper-venue">Vol. 64, No. 5 (May 2018), pp. 2325–2344</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2368674"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2448091"
+             target="_blank" rel="noopener">
+            Law and Finance Matter: Lessons from Externally Imposed Courts
+          </a>
+          <p class="paper-authors">with James R. Brown and Rawley Z. Heimer</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Review of Financial Studies</span>
+            <span class="paper-venue">Vol. 30, No. 3 (March 2017), pp. 1019–1051</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2448091"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2449562"
+             target="_blank" rel="noopener">
+            Leverage and Strategic Preemption: Lessons from Entry Plans and Incumbent Investments
+          </a>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Financial Economics</span>
+            <span class="paper-venue">Vol. 123, No. 2 (February 2017), pp. 292–312</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2449562"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2459727"
+             target="_blank" rel="noopener">
+            The Determinants of Bank Mergers: A Revealed Preference Analysis
+          </a>
+          <p class="paper-authors">with Oktay Akkus and Ali Hortaçsu</p>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Management Science</span>
+            <span class="paper-venue">Vol. 62, No. 8 (August 2016), pp. 2241–2258</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2459727"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://www.jstor.org/stable/10.1086/649030"
+             target="_blank" rel="noopener">
+            Institutions and Casinos: An Empirical Analysis of the Location of Indian Casinos
+          </a>
+          <div class="paper-meta">
+            <span class="badge badge-journal">Journal of Law and Economics</span>
+            <span class="paper-venue">Vol. 53, No. 4 (November 2010), pp. 651–687</span>
+            <a class="ssrn-link"
+               href="https://www.jstor.org/stable/10.1086/649030"
+               target="_blank" rel="noopener">JSTOR</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Other Publications -->
+      <h3 style="font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;
+        color:var(--navy);margin-top:2.5rem;margin-bottom:1rem;">Other Publications</h3>
+      <div class="paper-list">
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4806692"
+             target="_blank" rel="noopener">
+            Social Media and Finance
+          </a>
+          <p class="paper-authors">with Marina Niessner and Will Mullins</p>
+          <div class="paper-meta">
+            <span class="paper-venue">Oxford Research Encyclopedia of Economics and Finance, November 2024</span>
+            <a class="ssrn-link"
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4806692"
+               target="_blank" rel="noopener">SSRN</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <a class="paper-title"
+             href="https://academic.oup.com/wber/article-abstract/30/Supplement_1/S176/2897440"
+             target="_blank" rel="noopener">
+            Courting Economic Development
+          </a>
+          <p class="paper-authors">with James R. Brown and Rawley Z. Heimer</p>
+          <div class="paper-meta">
+            <span class="paper-venue">World Bank Economic Review, Vol. 30, Supplement 1 (March 2017)</span>
+            <a class="ssrn-link"
+               href="https://academic.oup.com/wber/article-abstract/30/Supplement_1/S176/2897440"
+               target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDITORIAL -->
+<section id="editorial" class="alt">
+  <div class="container">
+    <div class="section-label">Service</div>
+    <h2>Editorial &amp; Service</h2>
+    <div class="rule"></div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;
+      color:var(--navy);margin-bottom:1rem;">Editorial Roles</h3>
+    <div class="editorial-grid" style="margin-bottom:2.5rem;">
+      <div class="ed-card">
+        <div class="role">Editor</div>
+        <div class="journal">Review of Corporate Finance Studies</div>
+      </div>
+      <div class="ed-card">
+        <div class="role">Associate Editor</div>
+        <div class="journal">Journal of Financial Economics</div>
+      </div>
+      <div class="ed-card">
+        <div class="role">Associate Editor</div>
+        <div class="journal">Management Science</div>
+      </div>
+      <div class="ed-card">
+        <div class="role">Associate Editor</div>
+        <div class="journal">Financial Management</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'EB Garamond',serif;font-size:1.1rem;font-weight:600;
+      color:var(--navy);margin-bottom:1rem;">Conference Organization</h3>
+    <div class="editorial-grid">
+      <div class="ed-card">
+        <div class="role">Director</div>
+        <div class="journal">Financial Research Association</div>
+      </div>
+      <div class="ed-card">
+        <div class="role">Co-founder</div>
+        <div class="journal">Colorado Finance Summit (2015)</div>
+      </div>
+      <div class="ed-card">
+        <div class="role">Organizer</div>
+        <div class="journal"><a href="https://www.colorado.edu/business/finance-cloud"
+          target="_blank" rel="noopener"
+          style="color:var(--navy);text-decoration:none;">Finance in the Cloud</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container" style="max-width:560px;">
+    <div class="section-label">Contact</div>
+    <h2>Get in Touch</h2>
+    <div class="rule"></div>
+    <p style="font-size:0.93rem;color:var(--muted);margin-bottom:1.5rem;">
+      The best way to reach me is by email. I believe junior scholars bring essential new
+      ideas to research, and that feedback and exposure are invaluable to their development.
+      I am always happy to hear from them.
+    </p>
+    <p style="font-size:0.95rem;margin-bottom:0.5rem;">
+      <strong>Email:</strong>
+      tony [dot] lastname [at] gmail [dot] com
+    </p>
+    <div style="display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem;">
+      <img src="psu_logo.png" alt="Penn State"
+           style="height:36px;width:auto;margin-top:0.2rem;opacity:0.9;" />
+      <p style="font-size:0.93rem;color:var(--muted);margin:0;">
+        <strong>Affiliation (from June 2026):</strong><br/>
+        Smeal Chair Professor of Finance<br/>
+        Smeal College of Business, Penn State University
+      </p>
+    </div>
+    <a href="https://www.colorado.edu/business/media/1273"
+       target="_blank" rel="noopener"
+       style="display:inline-block;background:var(--navy);color:white;
+         padding:0.65rem 1.5rem;border-radius:3px;font-size:0.85rem;
+         font-weight:600;text-decoration:none;letter-spacing:0.04em;">
+      Download CV
+    </a>
+  </div>
+</section>
+
+<!-- DATA & PROGRAMS -->
+<section id="data-and-programs" class="alt">
+  <div class="container">
+    <div class="section-label">Data &amp; Programs</div>
+    <h2>Data &amp; Programs</h2>
+    <div class="rule"></div>
+    <p style="font-size:0.9rem;color:var(--muted);margin-bottom:2.5rem;max-width:640px;">
+      Data and code shared as products of my research. Please cite the associated paper if you use these resources.
+    </p>
+
+    <div style="display:flex;flex-direction:column;gap:0;">
+
+      <div class="paper">
+        <p class="paper-title" style="font-size:1rem;margin-bottom:0.2rem;color:var(--navy);font-family:'EB Garamond',serif;font-weight:600;">
+          Firm-Day Attention and Sentiment Data (2012–2021)
+        </p>
+        <p style="font-size:0.83rem;color:var(--muted);margin-bottom:0.35rem;">
+          First principal components of attention and sentiment from Twitter, StockTwits, and Seeking Alpha.
+        </p>
+        <p style="font-size:0.8rem;font-style:italic;color:var(--muted);margin-bottom:0.5rem;">
+          "The Social Signal" — <em>Journal of Financial Economics</em>, Vol. 158 (August 2024)
+        </p>
+        <div class="paper-meta">
+          <a class="ssrn-link"
+             href="https://data.mendeley.com/datasets/xffyybvw4j/1"
+             target="_blank" rel="noopener">Mendeley</a>
+        </div>
+      </div>
+
+      <div class="paper">
+        <p class="paper-title" style="font-size:1rem;margin-bottom:0.2rem;color:var(--navy);font-family:'EB Garamond',serif;font-weight:600;">
+          Firm-Day Investor Disagreement Data (2010–2021)
+        </p>
+        <p style="font-size:0.83rem;color:var(--muted);margin-bottom:0.35rem;">
+          Daily disagreement measures derived from social media. Available in Stata, text, and RData formats.
+        </p>
+        <p style="font-size:0.8rem;font-style:italic;color:var(--muted);margin-bottom:0.5rem;">
+          "Why Don't We Agree?" — <em>Journal of Finance</em>, Vol. 75 (2020) · "Investor Disagreement: Daily Measures" (2023)
+        </p>
+        <div class="paper-meta">
+          <a class="ssrn-link"
+             href="https://www.dropbox.com/scl/fi/wzmh0kwwm65vdng1y1p5y/Disagreement-Data-Readme"
+             target="_blank" rel="noopener">README</a>
+          <a class="ssrn-link"
+             href="https://marinaniessner.com/data.html"
+             target="_blank" rel="noopener">Data page</a>
+        </div>
+      </div>
+
+      <div class="paper">
+        <p class="paper-title" style="font-size:1rem;margin-bottom:0.2rem;color:var(--navy);font-family:'EB Garamond',serif;font-weight:600;">
+          Echo Chambers Data (January 2013 – June 2020)
+        </p>
+        <p style="font-size:0.83rem;color:var(--muted);margin-bottom:0.35rem;">
+          Stock-daily information siloing and self-stamped disagreement measures.
+        </p>
+        <p style="font-size:0.8rem;font-style:italic;color:var(--muted);margin-bottom:0.5rem;">
+          "Echo Chambers" — <em>Review of Financial Studies</em>, Vol. 36, No. 2 (February 2023)
+        </p>
+        <div class="paper-meta">
+          <a class="ssrn-link"
+             href="https://www.dropbox.com/s/e4njswsvol8ypd1/EchoChambers_data_topost.zip"
+             target="_blank" rel="noopener">Download (.zip)</a>
+        </div>
+      </div>
+
+      <div class="paper">
+        <p class="paper-title" style="font-size:1rem;margin-bottom:0.2rem;color:var(--navy);font-family:'EB Garamond',serif;font-weight:600;">
+          Partisan Investor Beliefs Data (January 2017 – June 2020)
+        </p>
+        <p style="font-size:0.83rem;color:var(--muted);margin-bottom:0.35rem;">
+          Daily sentiment comparing Republican investors versus others. Includes README, .dta, .csv, and .RData files.
+        </p>
+        <p style="font-size:0.8rem;font-style:italic;color:var(--muted);margin-bottom:0.5rem;">
+          "Does Partisanship Shape Investor Beliefs?" — <em>Review of Asset Pricing Studies</em>, Vol. 10, No. 4 (December 2020)
+        </p>
+        <div class="paper-meta">
+          <a class="ssrn-link"
+             href="https://www.dropbox.com/s/0wmx69ahhfjof6n/data%20to%20share_final.zip"
+             target="_blank" rel="noopener">Download (.zip)</a>
+        </div>
+      </div>
+
+      <div class="paper">
+        <p class="paper-title" style="font-size:1rem;margin-bottom:0.2rem;color:var(--navy);font-family:'EB Garamond',serif;font-weight:600;">
+          Text-Based Innovation Data (1990–2010)
+        </p>
+        <p style="font-size:0.83rem;color:var(--muted);margin-bottom:0.35rem;">
+          Firm-level innovation measures derived from 10-K filings, plus innovation word lists. Word lists should be validated when applied to corpora beyond the original sample.
+        </p>
+        <p style="font-size:0.8rem;font-style:italic;color:var(--muted);margin-bottom:0.5rem;">
+          "A Text-Based Analysis of Corporate Innovation" — <em>Management Science</em>, Vol. 67, No. 7 (July 2021)
+        </p>
+        <div class="paper-meta">
+          <a class="ssrn-link"
+             href="https://www.dropbox.com/s/mcuxrrbj7e5z5j9/innov%20data%20online.zip"
+             target="_blank" rel="noopener">Data (.zip)</a>
+          <a class="ssrn-link"
+             href="https://www.dropbox.com/s/pd5cgowxy4lf76q/innovation%20wordlists.zip"
+             target="_blank" rel="noopener">Word lists (.zip)</a>
+        </div>
+      </div>
+
+      <div class="paper">
+        <p class="paper-title" style="font-size:1rem;margin-bottom:0.2rem;color:var(--navy);font-family:'EB Garamond',serif;font-weight:600;">
+          Native American Reservation–County Crosswalk Files
+        </p>
+        <p style="font-size:0.83rem;color:var(--muted);margin-bottom:0.35rem;">
+          Geographic crosswalks for reservations with Native American populations exceeding 250 in 1989.
+        </p>
+        <p style="font-size:0.8rem;font-style:italic;color:var(--muted);margin-bottom:0.5rem;">
+          "Law and Finance Matter" — <em>Review of Financial Studies</em>, Vol. 30, No. 3 (March 2017)
+        </p>
+        <div class="paper-meta">
+          <a class="ssrn-link"
+             href="https://www.dropbox.com/sh/062fu5xipay4jjn/AACvV55EVSJ7KfL1yJwBiJGna"
+             target="_blank" rel="noopener">Download (CSV)</a>
+        </div>
+      </div>
+
+      <div class="paper">
+        <p class="paper-title" style="font-size:1rem;margin-bottom:0.2rem;color:var(--navy);font-family:'EB Garamond',serif;font-weight:600;">
+          Native American Casinos and Courts Data
+        </p>
+        <p style="font-size:0.83rem;color:var(--muted);margin-bottom:0.35rem;">
+          Reservation-level data on casino presence, size, and tribal court development as of 1985.
+        </p>
+        <p style="font-size:0.8rem;font-style:italic;color:var(--muted);margin-bottom:0.5rem;">
+          "Institutions and Casinos" — <em>Journal of Law and Economics</em>, Vol. 53, No. 4 (November 2010)
+        </p>
+        <div class="paper-meta">
+          <a class="ssrn-link"
+             href="https://www.dropbox.com/sh/uz2u4ykprbis2np/AAASHHgPfiRTQssQa77TGBVIa"
+             target="_blank" rel="noopener">Download (CSV + RData)</a>
+        </div>
+      </div>
+
+      <div class="paper" style="border-bottom:none;">
+        <p class="paper-title" style="font-size:1rem;margin-bottom:0.2rem;color:var(--navy);font-family:'EB Garamond',serif;font-weight:600;">
+          Two-Step Assortative Matching Code
+        </p>
+        <p style="font-size:0.83rem;color:var(--muted);margin-bottom:0.35rem;">
+          R code implementing a matching estimator to correct for selection bias, with Monte Carlo exercises.
+        </p>
+        <p style="font-size:0.8rem;font-style:italic;color:var(--muted);margin-bottom:0.5rem;">
+          "Assortative Matching and Reputation in the Market for First Issues" — <em>Management Science</em>, Vol. 67, No. 4 (April 2021)
+        </p>
+        <div class="paper-meta">
+          <a class="ssrn-link"
+             href="https://www.dropbox.com/s/d023ckne8v5rt1w/Data%20and%20Programs%20for%20web.zip"
+             target="_blank" rel="noopener">Download (.zip)</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <a href="#research">Research</a>
+    <a href="#editorial">Editorial</a>
+    <a href="#contact">Contact</a>
+    <a href="#data-and-programs">Data &amp; Programs</a>
+    <a href="https://www.colorado.edu/business/media/1273"
+       target="_blank" rel="noopener">CV</a>
+  </div>
+  <p>J. Anthony Cookson &nbsp;·&nbsp; Finance</p>
+</footer>
+
+</body>
+</html>
