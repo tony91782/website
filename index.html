@@ -226,6 +226,11 @@
     .badge-accepted { background: #e8f5e9; color: #2e6e34; border: 1px solid #a8d8ac; }
     .badge-journal  { background: #eef2f8; color: var(--navy); border: 1px solid #c0ccdf; }
     .badge-submitted { background: #f5f0ff; color: #4a2080; border: 1px solid #c8b0e8; }
+    .badge-honor     { background: #fff8e6; color: #7a5800; border: 1px solid #d4a843; }
+    .paper-awards {
+      font-size: 0.78rem; color: var(--gold);
+      margin-top: 0.45rem; line-height: 1.5;
+    }
     .paper-venue {
       font-size: 0.82rem; color: var(--muted);
       font-style: italic;
@@ -266,6 +271,32 @@
       color: var(--navy);
     }
 
+    /* ─── IN THE NEWS ─── */
+    .news-list { display: flex; flex-direction: column; gap: 0; }
+    .news-paper-row {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-paper-row:first-child { border-top: 1px solid var(--border); }
+    .news-paper-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--navy); text-decoration: none;
+      display: block; margin-bottom: 0.65rem;
+      line-height: 1.35; transition: color 0.15s;
+    }
+    .news-paper-title:hover { color: var(--gold); }
+    .news-outlets { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .outlet-link {
+      font-size: 0.74rem; font-weight: 500;
+      color: var(--muted); text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 2px; background: var(--white);
+      padding: 0.18rem 0.55rem;
+      transition: all 0.15s;
+    }
+    .outlet-link:hover { color: var(--navy); border-color: var(--navy); }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--navy);
@@ -294,6 +325,7 @@
   <ul>
     <li><a href="#research">Research</a></li>
     <li><a href="#editorial">Editorial</a></li>
+    <li><a href="#press">In the News</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#data-and-programs">Data &amp; Programs</a></li>
   </ul>
@@ -394,7 +426,7 @@
           <a class="paper-title"
              href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5375473"
              target="_blank" rel="noopener">
-            The Market's Mirror: Revealing Disagreement with Large Language Models
+            The Market's Mirror: Revealing Investor Disagreement with Large Language Models
           </a>
           <p class="paper-authors">with Vineet Bhagwat, Chukwuma Dim, and Marina Niessner</p>
           <div class="paper-meta">
@@ -584,11 +616,13 @@
           <p class="paper-authors">with Runjing Lu, William Mullins, and Marina Niessner</p>
           <div class="paper-meta">
             <span class="badge badge-journal">Journal of Financial Economics</span>
-            <span class="paper-venue">Vol. 158 (August 2024), 103870 · Editor's Choice</span>
+            <span class="badge badge-honor">Editor's Choice</span>
+            <span class="paper-venue">Vol. 158 (August 2024), 103870</span>
             <a class="ssrn-link"
                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4241505"
                target="_blank" rel="noopener">SSRN</a>
           </div>
+          <p class="paper-awards">Best Paper Award in Honor of Jack Brick, 11th Michigan State FCU Conference &middot; Best Paper in Investments and Asset Pricing, 2023 Midwest Finance Association</p>
         </div>
 
         <div class="paper">
@@ -605,6 +639,7 @@
                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3603107"
                target="_blank" rel="noopener">SSRN</a>
           </div>
+          <p class="paper-awards">NASDAQ Award for Best Paper in Asset Pricing, 2021 Western Finance Association &middot; Best Paper in Markets and Trading, 2021 Midwest Finance Association &middot; 2023 Kahle Family Research Award &middot; First Prize, 2021 CQA Academic Competition</p>
         </div>
 
         <div class="paper">
@@ -648,11 +683,13 @@
           <p class="paper-authors">with Gustaf Bellstam and Sanjai Bhagat</p>
           <div class="paper-meta">
             <span class="badge badge-journal">Management Science</span>
-            <span class="paper-venue">Vol. 67, No. 7 (July 2021), pp. 4004–4031 · Featured Article</span>
+            <span class="badge badge-honor">Featured Article</span>
+            <span class="paper-venue">Vol. 67, No. 7 (July 2021), pp. 4004–4031</span>
             <a class="ssrn-link"
                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2803232"
                target="_blank" rel="noopener">SSRN</a>
           </div>
+          <p class="paper-awards">Outstanding Paper in Corporate Finance, 2017 Midwest Finance Association</p>
         </div>
 
         <div class="paper">
@@ -701,6 +738,7 @@
                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2754086"
                target="_blank" rel="noopener">SSRN</a>
           </div>
+          <p class="paper-awards">Best Paper, 2017 Front Range Finance Seminar</p>
         </div>
 
         <div class="paper">
@@ -717,6 +755,7 @@
                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2809164"
                target="_blank" rel="noopener">SSRN</a>
           </div>
+          <p class="paper-awards">Top 100 Papers, Financial Times List of Business School Research with Social Impact &middot; Finalist, 2021 TIAA Paul A. Samuelson Award</p>
         </div>
 
         <div class="paper">
@@ -747,6 +786,7 @@
                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2517126"
                target="_blank" rel="noopener">SSRN</a>
           </div>
+          <p class="paper-awards">Talk of the Town Award, 2015 Finance Down Under Conference</p>
         </div>
 
         <div class="paper">
@@ -914,6 +954,127 @@
           target="_blank" rel="noopener"
           style="color:var(--navy);text-decoration:none;">Finance in the Cloud</a></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- IN THE NEWS -->
+<section id="press" class="alt">
+  <div class="container">
+    <div class="section-label">Impact</div>
+    <h2>In the News</h2>
+    <div class="rule"></div>
+    <div class="news-list">
+
+      <div class="news-paper-row">
+        <a class="news-paper-title"
+           href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4422754"
+           target="_blank" rel="noopener">Social Media as a Bank Run Catalyst</a>
+        <div class="news-outlets">
+          <a class="outlet-link" href="https://www.wsj.com/articles/silicon-valley-bank-run-twitter-59061759" target="_blank" rel="noopener">Wall Street Journal</a>
+          <a class="outlet-link" href="https://www.ft.com/content/adb0ca9e-010b-4861-a2b5-ec0e30916956" target="_blank" rel="noopener">Financial Times</a>
+          <a class="outlet-link" href="https://www.ft.com/content/a60e543d-c950-4ebb-8da9-d6b0b359ad7b" target="_blank" rel="noopener">Financial Times</a>
+          <a class="outlet-link" href="https://www.cnbc.com/2023/04/24/social-media-raises-bank-run-risk-fueled-svbs-collapse-paper-says.html" target="_blank" rel="noopener">CNBC</a>
+          <a class="outlet-link" href="https://fortune.com/2023/04/24/twitter-financial-system-risk-silicon-valley-bank-run-study/" target="_blank" rel="noopener">Fortune</a>
+          <a class="outlet-link" href="https://www.axios.com/2023/04/24/twitter-svb-bank-run" target="_blank" rel="noopener">Axios</a>
+          <a class="outlet-link" href="https://money.com/twitter-svb-collapse-study/" target="_blank" rel="noopener">Money</a>
+          <a class="outlet-link" href="https://www.sfchronicle.com/bayarea/article/twitter-fueled-run-toppled-silicon-valley-bank-17915239.php" target="_blank" rel="noopener">San Francisco Chronicle</a>
+          <a class="outlet-link" href="https://www.nbcbayarea.com/video/twitters-role-in-silicon-valley-bank-failure/3213344/" target="_blank" rel="noopener">NBC Bay Area</a>
+          <a class="outlet-link" href="https://youtu.be/mhjRWBJN1_U" target="_blank" rel="noopener">CNN International</a>
+          <a class="outlet-link" href="https://www.nasdaq.com/articles/did-tweets-help-crash-silicon-valley-bank-paper-shows-new-social-media-risks" target="_blank" rel="noopener">Kiplinger</a>
+          <a class="outlet-link" href="https://www.technewsworld.com/story/social-media-fueled-the-run-on-silicon-valley-bank-study-178230.html" target="_blank" rel="noopener">TechNewsWorld</a>
+          <a class="outlet-link" href="https://omny.fm/shows/kcbsam-on-demand/study-how-twitter-chatter-contributed-to-silicon-v" target="_blank" rel="noopener">KCBS Radio</a>
+          <a class="outlet-link" href="https://twitter.com/YahooFinance/status/1652052278826745856" target="_blank" rel="noopener">Yahoo! Finance</a>
+        </div>
+      </div>
+
+      <div class="news-paper-row">
+        <a class="news-paper-title"
+           href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4535190"
+           target="_blank" rel="noopener">Money to Burn: Crowdfunding for Disaster Recovery</a>
+        <div class="news-outlets">
+          <a class="outlet-link" href="https://www.nytimes.com/2024/01/29/climate/gofundme-disaster-relief-climate.html" target="_blank" rel="noopener">New York Times</a>
+          <a class="outlet-link" href="https://www.nytimes.com/2025/02/09/business/media/la-fires-gofundme.html" target="_blank" rel="noopener">New York Times</a>
+          <a class="outlet-link" href="https://www.wsj.com/personal-finance/gofundme-donations-los-angeles-fires-crowdfunding-b931df65" target="_blank" rel="noopener">Wall Street Journal</a>
+          <a class="outlet-link" href="https://www.theatlantic.com/technology/archive/2025/01/gofundme-la-fires/681351/" target="_blank" rel="noopener">The Atlantic</a>
+          <a class="outlet-link" href="https://www.theguardian.com/us-news/2025/jan/17/la-fires-gofundme-mandy-moore" target="_blank" rel="noopener">The Guardian</a>
+          <a class="outlet-link" href="https://open.spotify.com/episode/042iYV8pdHfTtaqZ0NhtFY" target="_blank" rel="noopener">KQED Forum</a>
+          <a class="outlet-link" href="https://www.cbc.ca/listen/live-radio/1-63-the-current/clip/16123856-businesses-brace-trump-tariffs-chrystia-freelands-bid-replace" target="_blank" rel="noopener">CBC's The Current</a>
+          <a class="outlet-link" href="https://www.colorado.edu/today/2024/02/01/crowdfunding-after-marshall-fire-overwhelmingly-helped-wealthy-households" target="_blank" rel="noopener">CU Boulder Today</a>
+          <a class="outlet-link" href="https://www.9news.com/article/news/local/wildfire/marshall-fire/marshall-fire-crowdfunding-study/73-e34c1498-be94-4aab-a752-06c15e9ff39c" target="_blank" rel="noopener">9News</a>
+          <a class="outlet-link" href="https://kdvr.com/video/live-with-researcher-on-the-cu-boulder-marshall-fire-crowdfunding-study/9406087/" target="_blank" rel="noopener">Fox31 News</a>
+          <a class="outlet-link" href="https://www.kunr.org/local-stories/2024-02-06/gofundme-donations-disaster-survivors-disproportionately-wealthy-study-finds" target="_blank" rel="noopener">KUNR Radio</a>
+          <a class="outlet-link" href="https://www.dailycamera.com/2024/03/06/cu-boulder-study-finds-wealth-disparities-in-gofundme-success-following-manhattan-fire/" target="_blank" rel="noopener">Daily Camera</a>
+        </div>
+      </div>
+
+      <div class="news-paper-row">
+        <a class="news-paper-title"
+           href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3603107"
+           target="_blank" rel="noopener">Echo Chambers</a>
+        <div class="news-outlets">
+          <a class="outlet-link" href="https://www.colorado.edu/today/2021/02/03/gamestop-may-not-be-david-and-goliath-story-you-think-researcher-says" target="_blank" rel="noopener">CU Boulder Today</a>
+          <span class="outlet-link">Colorado Public Radio</span>
+        </div>
+      </div>
+
+      <div class="news-paper-row">
+        <a class="news-paper-title"
+           href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2517126"
+           target="_blank" rel="noopener">When Saving is Gambling</a>
+        <div class="news-outlets">
+          <span class="outlet-link">The Daily Northwestern</span>
+          <span class="outlet-link">The Conversation</span>
+          <span class="outlet-link">Longmont Times-Call</span>
+        </div>
+      </div>
+
+      <div class="news-paper-row">
+        <a class="news-paper-title"
+           href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2809164"
+           target="_blank" rel="noopener">Growing Up Without Finance</a>
+        <div class="news-outlets">
+          <a class="outlet-link" href="https://www.pbs.org/newshour/economy/making-sense/column-how-growing-up-in-a-bank-desert-can-hurt-your-credit-for-the-rest-of-your-life" target="_blank" rel="noopener">PBS NewsHour</a>
+          <a class="outlet-link" href="https://theconversation.com/growing-up-in-a-banking-desert-can-hurt-your-credit-for-the-rest-of-your-life-130938" target="_blank" rel="noopener">The Conversation</a>
+          <a class="outlet-link" href="https://www.colorado.edu/today/2020/01/21/bank-deserts-have-major-costs" target="_blank" rel="noopener">CU Boulder Today</a>
+          <a class="outlet-link" href="https://www.sciencedaily.com/releases/2019/05/190516114621.htm" target="_blank" rel="noopener">Science Daily</a>
+          <span class="outlet-link">NPR</span>
+          <span class="outlet-link">1190 Radio</span>
+        </div>
+      </div>
+
+      <div class="news-paper-row">
+        <a class="news-paper-title"
+           href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5057551"
+           target="_blank" rel="noopener">Coverage Neglect in Homeowners Insurance</a>
+        <div class="news-outlets">
+          <a class="outlet-link" href="https://www.wsj.com/finance/california-fires-costs-rebuilding-money-fa201dc4" target="_blank" rel="noopener">Wall Street Journal</a>
+          <a class="outlet-link" href="https://theconversation.com/many-colorado-homeowners-are-underinsured-heres-what-to-do-before-the-next-fire-263702" target="_blank" rel="noopener">The Conversation</a>
+          <a class="outlet-link" href="https://www.axios.com/local/denver/2025/01/15/colorado-home-insurance-wildfires" target="_blank" rel="noopener">Axios</a>
+          <a class="outlet-link" href="https://www.cpr.org/2024/12/30/marshall-fire-homeowners-underinsured-study/" target="_blank" rel="noopener">Colorado Public Radio</a>
+          <a class="outlet-link" href="https://www.colorado.edu/today/2025/01/09/study-reveals-widespread-underinsurance-among-homeowners-exposing-risk-wake-devastating" target="_blank" rel="noopener">CU Boulder Today</a>
+        </div>
+      </div>
+
+      <div class="news-paper-row">
+        <a class="news-paper-title"
+           href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5187350"
+           target="_blank" rel="noopener">Market Signals from Social Media</a>
+        <div class="news-outlets">
+          <a class="outlet-link" href="https://www.morningstar.com/news/marketwatch/20250528136/please-shut-up-if-youre-trying-to-make-money-in-the-stock-market" target="_blank" rel="noopener">MarketWatch</a>
+          <a class="outlet-link" href="https://www.colorado.edu/today/2025/06/18/market-mood-swings-how-fear-spreads-online-and-what-it-means-investors" target="_blank" rel="noopener">CU Boulder Today</a>
+        </div>
+      </div>
+
+      <div class="news-paper-row">
+        <a class="news-paper-title"
+           href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5375473"
+           target="_blank" rel="noopener">The Market's Mirror: Revealing Investor Disagreement with Large Language Models</a>
+        <div class="news-outlets">
+          <a class="outlet-link" href="https://marginalrevolution.com/marginalrevolution/2025/08/tuesday-assorted-links-528.html" target="_blank" rel="noopener">Marginal Revolution</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
